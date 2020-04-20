@@ -1,5 +1,5 @@
 ubuntu:
-  image: ubuntu:18.04
+  build: ./images/builder.dockerfile
   environment:
     TEST_ENV: Blah
   cached: true
