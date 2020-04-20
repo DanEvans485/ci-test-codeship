@@ -1,5 +1,7 @@
 ubuntu:
-  build: ./images/builder.dockerfile
+  build:
+    context: .
+    dockerfile: ./images/builder.dockerfile
   environment:
     TEST_ENV: Blah
   cached: true
