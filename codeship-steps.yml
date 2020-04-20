@@ -4,7 +4,7 @@
   - ubuntu
   steps:
   - name: clone repo
-    command: git clone https://github.com/DanEvans485/ci-test-codeship.git && cd ci-test-codeship
+    command: git clone https://github.com/DanEvans485/ci-test-codeship.git .
   - name: list files
     command: ls
   - name: echo env
