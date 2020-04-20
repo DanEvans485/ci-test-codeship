@@ -1,0 +1,9 @@
+- type: serial
+  tag: "master"
+  services:
+  - ubuntu
+  steps:
+  - name: clone repo
+    command: git clone https://github.com/DanEvans485/ci-test-codeship.git && cd ci-test-codeship
+  - name: list files
+    command: ls

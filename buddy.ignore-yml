@@ -1,0 +1,40 @@
+- pipeline: "Build"
+  trigger_mode: "MANUAL"
+  ref_name: "master"
+  ref_type: "BRANCH"
+  target_site_url: "https://teemill.com"
+  trigger_condition: "ALWAYS"
+  actions:
+  - action: "Ping https://teemill.com"
+    type: "PING"
+    destination: "teemill.com"
+    trigger_condition: "ALWAYS"
+  - action: "Execute: ls"
+    type: "BUILD"
+    working_directory: "/buddy/ci-test-codeship"
+    docker_image_name: "library/ubuntu"
+    docker_image_tag: "18.04"
+    execute_commands:
+    - "ls"
+    volume_mappings:
+    - "/:/buddy/ci-test-codeship"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+
+- pipeline: "Stage"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "master"
+  ref_type: "BRANCH"
+  trigger_condition: "ALWAYS"
+  actions:
+  - action: "Execute: ls"
+    type: "BUILD"
+    working_directory: "/buddy/ci-test-codeship"
+    docker_image_name: "library/ubuntu"
+    docker_image_tag: "18.04"
+    execute_commands:
+    - "ls"
+    volume_mappings:
+    - "/:/buddy/ci-test-codeship"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
