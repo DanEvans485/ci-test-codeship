@@ -8,4 +8,4 @@
   - name: list files
     command: ls
   - name: echo env
-    command: echo "$TEST_ENV"
+    command: echo "Test $TEST_ENV"
